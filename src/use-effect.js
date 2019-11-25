@@ -35,19 +35,24 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import axios from 'axios';
 
-function Index() {
 
+// 如果想执行只运行一次的 effect（仅在组件挂载和卸载时执行），
+// 可以传递一个空数组（[]）作为第二个参数。
+// 这就告诉 React 你的 effect 不依赖于 props 或 state 中的任何值，
+// 所以它永远都不需要重复执行。这并不属于特殊情况 —— 它依然遵循输入数组的工作方式。
+
+// 如果你传入了一个空数组（[]），
+// effect 内部的 props 和 state 就会一直持有其初始值。
+// 尽管传入 [] 作为第二个参数有点类似于 componentDidMount 和 componentWillUnmount 的思维模式，
+// 但我们有 更好的 方式 来避免过于频繁的重复调用 effect。
+// 除此之外，请记得 React 会等待浏览器完成画面渲染之后才会延迟调用 useEffect，因此会使得处理额外操作很方便
+function Index() {
   useEffect(() => {
     console.log('useEffect=> Index页面');
-    // return一个回调函数实现componentWillUnmount生命周期函数,返回函数的形式进行解绑
-    // 但是此时点击click事件让状态发生改变，又会执行useEffect，那下面的return方法也会再次被执行（状态发生变化，useEffect都进行了解绑）
-    // 此时传人useEffect的第二个参数，是一个数组，
-    // 这个数组中可以写入很多状态对应的变量，意思是当状态值发生变化时，我们才执行useEffect，但是当传空数组时，就是当组件将被销毁时才执行useEffect一次，这也就实现了componentWillUnmount的生命周期函数
     return() => {
       console.log('离开Index页面');
     }
   }, [])
-
   return (
     <h2>this is index</h2>
   )

@@ -41,22 +41,21 @@ function UseState() {
   //   const [name, setName] = useState('guoba');
   //   flag = false;
   // }
-  const [age, setAge] = useState(18);
-  const [work] = useState('搬砖工人');
+  // const [age, setAge] = useState(18);
+  // const [work] = useState('搬砖工人');
 
   // 状态合并
-  const [state, setState] = useState({ age1: 16, work1: '码农'})
+  // const [state, setState] = useState({ age1: 16, work1: '码农'})
 
   return (
     <div>
       <p> you click {count}</p>
       <button onClick={() => {setCount(count + 1)}}>click me2</button>
-      {/* <p>name: {name}</p> */}
-      <p onClick={() => {setAge(age + 1)}}>age: {age}</p>
+      {/* <p onClick={() => {setAge(age + 1)}}>age: {age}</p>
       <p>work: {work}</p>
 
       <p>age1: { state.age1}</p>
-      <p>work1: {state.work1}</p>
+      <p>work1: {state.work1}</p> */}
     </div>
   )
 }

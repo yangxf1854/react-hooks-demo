@@ -46,6 +46,7 @@ function ChildCounter() {
 
 function UseContext() {
   const [count, setCount] = useState(0);
+
   const obj = {
     count,
     loading: true
