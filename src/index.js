@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import './index.css';
 import UseState from './use-state'; // useState
 import SearchResult from './search-result'; // 请求数据
 import UseEffect from './use-effect'; // useEffect代替生命周期函数
@@ -11,4 +10,4 @@ import UseMemo from './use-memo'; // useMemo一种性能优化的手段
 import Useref from './use-ref'; // useRef获取dom元素
 import UseWinSize from './custom'; // 一个自定义的hook函数，用于获取浏览器窗口尺寸
 
-ReactDOM.render(<SearchResult />, document.getElementById('root'));
+ReactDOM.render(<UseState />, document.getElementById('root'));

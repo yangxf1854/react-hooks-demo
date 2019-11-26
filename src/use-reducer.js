@@ -13,7 +13,9 @@ import React, { useReducer } from 'react'
 // 它接收一个形如 (state, action) => newState 的 reducer，
 // 并返回当前的 state 以及与其配套的 dispatch 方法。
 // 一般将初始 state 作为第二个参数传入 useReducer 是最简单的方法
+
 function ReducerDemo() {
+  // const [state, dispatch] = useReducer(reducer, initialArg, init);
   const [count, dispatch] = useReducer((state, action) => {
     console.log(state, action);
     switch(action.type) {

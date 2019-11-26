@@ -14,7 +14,6 @@ function Counter() {
   const props = useContext(CounterContext);
   console.log(props, '子组件props');
   
-  
   return (
     <div>
       <h2>子组件的count:{props.count}</h2>

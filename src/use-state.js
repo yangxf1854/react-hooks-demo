@@ -25,9 +25,10 @@
 // }
 
 // react-hooks方法
-import React, { useState } from 'react';
-let flag = true;
+import React, { useState, useEffect } from 'react';
 function UseState() {
+  console.log(this, 'hooks与class最大区别之一：hooks组件是没有this的');
+  
   const [count, setCount] = useState(0); // 数组解构,如果useState方法不传人值的话，count的值就是undefined
   
   // 等价
@@ -36,16 +37,14 @@ function UseState() {
   // const setCount = countValue[1];
 
   // 多状态
-  // 在每个组件呈现中，必须以完全相同的顺序调用React hook,不能在条件判断，遍历循环等表达式中使用
-  // if (flag) {
-  //   const [name, setName] = useState('guoba');
-  //   flag = false;
-  // }
-  // const [age, setAge] = useState(18);
-  // const [work] = useState('搬砖工人');
+  // 在每个组件呈现中，必须以完全相同的顺序调用React hook,不能在条件判断，遍历循环等表达式中使用（这个在后面将useEffect这个的时候会顺便讲）
+  const [name, setName] = useState('guoba');
+  const [age, setAge] = useState(18);
+  const [work] = useState('搬砖工人');
 
   // 状态合并
-  // const [state, setState] = useState({ age1: 16, work1: '码农'})
+  // 申明：const [state, setState] = useState({ age1: 16, work1: '码农'})
+  // 调用：setState({ ...state, age1: 17 })
 
   return (
     <div>

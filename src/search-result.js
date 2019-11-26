@@ -2,14 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Table } from 'antd';
 import axios from 'axios';
 import moment from 'moment';
-
-
+import './index.css';
 
 const columns = [
   {
     title: '序号',
-    dataIndex: 'created_at',
-    key: 'created_at',
+    dataIndex: 'index',
+    key: 'index',
     render: (text, record, i) => {
       return i + 1;
     }
@@ -28,9 +27,9 @@ const columns = [
     key: 'title',
   },
   {
-    title: '住址',
-    dataIndex: 'title',
-    key: 'title',
+    title: '作者',
+    dataIndex: 'author',
+    key: 'author',
   },  
   {
     title: '观看数',
@@ -39,7 +38,7 @@ const columns = [
   },
 ];
 
-
+let flag = true;
 let timer = null;
 function SearchResults() {
   const [data, setData] = useState({ hits: []});
@@ -50,7 +49,6 @@ function SearchResults() {
   useEffect(() => {
     // 请求数据异步方法
     async function fetchData() {
-      console.log('22');
       setLoad(true); // 改变loading为true
       const result = await axios('https://hn.algolia.com/api/v1/search?query=' + query);
       setLoad(false); // 请求完数据将loading改为 false
@@ -63,6 +61,7 @@ function SearchResults() {
     timer = setTimeout(() => {
       fetchData();
     }, 300)
+
     return () => { 
       console.log(loading, '解绑');
     }
@@ -80,7 +79,7 @@ function SearchResults() {
           dataSource={data.hits || []}
           columns={columns}
           loading={loading}
-          bordered
+          rowKey="created_at_i"
         />
       </div>
     </div>

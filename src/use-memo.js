@@ -2,12 +2,13 @@ import React, { useState, useMemo } from 'react';
 
 // 自组件
 function ChildComponent({name, children}) {
-  function changeXiaohong(name){
+  const changeXiaohong = (name) => {
         console.log('她来了，她来了。小红向我们走来了')
         return name+',小红向我们走来了'
     }
 
     // const actionXiaohong = changeXiaohong(name);
+    // 注意这边虽然name没变，但是ChildComponent组件重新render了。所以会触发
     const actionXiaohong = useMemo(() => changeXiaohong(name), [name]); // “创建”函数和依赖项数组[name]作为参数传入 useMemo，它仅会在某个依赖项（name）改变时才重新计算 memoized 值也就是说在name改变时才重新执行changeXiaohong这个函数
 
     return (

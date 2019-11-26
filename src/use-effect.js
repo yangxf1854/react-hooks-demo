@@ -33,8 +33,6 @@
 // react-hooks 方法
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
-import axios from 'axios';
-
 
 // 如果想执行只运行一次的 effect（仅在组件挂载和卸载时执行），
 // 可以传递一个空数组（[]）作为第二个参数。
